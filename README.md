@@ -22,7 +22,7 @@ This project is a simple authentication system built with Next.js and Redux. It 
   - Added form validation to ensure both username and password fields are filled.
   - Used `toast.error` to notify users of validation errors, invalid credentials, and other issues during login.
   - Ensured error messages are shown below the input fields for better user feedback.
-  - Added **dummy credentials** (`admin` / `password123`) in the **"Logging In"** section to provide users with sample login information.
+  - Added **dummy credentials** (`admin` / `password`) in the **"Logging In"** section to provide users with sample login information.
 
 ### 3. **API Endpoint**
 
