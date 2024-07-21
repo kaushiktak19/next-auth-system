@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { setToken, setUser } from '@/redux/auth/auth.slice';
 import { useAppDispatch } from '@/redux/store';
 import useAuthSession from '../hooks/useAuthSession';
+import { toast } from 'react-toastify';
 
 const HomePage = () => {
   const [username, setUsername] = useState('');
@@ -16,6 +17,7 @@ const HomePage = () => {
     setError('');
     if (!username || !password) {
       setError('Both fields are required');
+      toast.error('Both fields are required'); 
       return;
     }
 
@@ -33,11 +35,14 @@ const HomePage = () => {
         localStorage.setItem('token', token);
         dispatch(setToken(token));
         dispatch(setUser({ username: user.username }));
+        toast.success('Login successful'); 
       } else {
         setError('Invalid credentials');
+        toast.error('Invalid credentials'); 
       }
     } catch (error) {
       setError('Failed to login');
+      toast.error('Failed to login'); 
     }
   };
 
