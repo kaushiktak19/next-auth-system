@@ -1,45 +1,53 @@
-# TMD: FullStack Intern Assignment
+# Fullstack Authentication System
 
 ## Overview
 
-This assignment involves setting up a simple username/password authentication system using Redux for state management and Next.js for the front-end and back-end. You will create API endpoints with bearer token authentication and implement a custom `useAuthSession` hook to manage the user's session on the client side.
+This project is a simple authentication system built with Next.js and Redux. It includes user login functionality with error handling and toast notifications for user feedback.
 
-## Your Tasks
+## Changes and Updates
 
-1. **Implement the `useAuthSession` Hook**:
+### 1. **Toast Notifications Integration**
 
-   - In `hooks/useAuthSession.ts`, create a custom hook that manages the user's authentication session.
-   - The hook should handle checking if a user is authenticated and fetching user data.
+- **Library Used:** [react-toastify](https://github.com/fkhadra/react-toastify)
+- **Purpose:** Added toast notifications to provide feedback to users for various actions, such as login success, errors, and validation issues.
+- **Implementation:**
+  - Installed `react-toastify` and added it to the project.
+  - Configured `ToastContainer` in the main layout to display notifications.
+  - Updated the `HomePage` component to use `toast` for showing notifications on login success, validation errors, and failed login attempts.
 
-2. **Create and Complete the API Endpoints**:
+### 2. **Error Handling and Validation**
 
-   - create the required apis
+- **Purpose:** Improved user experience by validating input fields and providing immediate feedback.
+- **Changes:**
+  - Added form validation to ensure both username and password fields are filled.
+  - Used `toast.error` to notify users of validation errors, invalid credentials, and other issues during login.
+  - Ensured error messages are shown below the input fields for better user feedback.
+  - Added **dummy credentials** (`admin` / `password123`) in the **"Logging In"** section to provide users with sample login information.
 
-3. **Bearer Token Authentication**:
-   - Implement bearer token authentication in your API endpoints.
-   - Ensure that API requests are secured and only accessible to authenticated users.
+### 3. **API Endpoint**
 
-## Example Usage of useAuthSession Hook
+- **Endpoint:** `/api/login`
+- **Method:** POST
+- **Purpose:** Handles user authentication and returns a token upon successful login.
+- **Error Handling:** Returns appropriate error messages for invalid credentials or failed login attempts.
 
-```bash
-const { user } = useAuthSession();
+## How to Use
 
-if (user) {
-  console.log('User:', user.username);
-}
-```
+### Running the Application
 
-## Estimated Time
+After cloning the repo in your local system - 
 
-Please spend no more than 3-4 hours on this assignment and submit whatever you can complete within that time frame.
+1. **Install Dependencies:**
 
-## Bonus Tasks
+   ```bash
+   npm install
+   ```
 
-1. Add validation checks for the login form.
-2. Show toast notifications for errors and successful login.
+2. **Running app locally:**
 
-## Submission
+   ```bash
+   npm run dev
+   ```
+   This will start the application at http://localhost:3000.
 
-1. Ensure all your changes are committed.
-2. Push your changes to a new repository on your personal GitHub account with public access.
-3. Provide a link to your repository, along with your email and phone number, in the provided Google Form. Do not create pull requests in the shared repository.
+
